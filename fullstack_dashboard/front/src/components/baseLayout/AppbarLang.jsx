@@ -13,13 +13,14 @@ const AppbarLang = () => {
 
     useEffect(() => {
         const handleClickOutside = (e) => {
-            if (countryLangRef.current.contains(e.target)) {
+            console.log(e.target)
+            if (!countryLangRef.current.contains(e.target)) {
                 setIsDropListEnabled(false)
             }
         }
         window.addEventListener('click', handleClickOutside)
-        return () => {
-            window.addEventListener('click', handleClickOutside)
+        return () => {  // clean up
+            window.removeEventListener('click', handleClickOutside)
         }
     }, [])
 
@@ -62,7 +63,7 @@ const AppbarLang = () => {
 
 
     return (
-        <div className='appbar-dropdown relative w-30 h-10 mx-7'>
+        <div className='appbar-dropdown relative w-30 h-10 mx-7' ref={countryLangRef}>
             <div className='drop-selected flex items-center w-full h-full gap-x-3 px-1 py-3 cursor-pointer' onClick={handleDroplistEnable}>
                 <div className='drop-selected-img w-6 h-6 min-w-6 overflow-hidden rounded-full'>
                     <img src={selectedCountry?.flag} alt="Country flag" className='w-full h-full object-cover' />
