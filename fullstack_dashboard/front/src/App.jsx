@@ -1,36 +1,20 @@
 import './App.css'
-import React, { useEffect, useState } from 'react';
-import axios from 'axios';
+import Appbar from './components/baseLayout/Appbar'
+import Sidebar from './components/baseLayout/Sidebar'
+import DashboardScreen from './components/dashboard/DashboardScreen'
 
-function App() {
-
-  const [data, setData] = useState([]);
-
-  useEffect(() => {
-    axios.get('http://localhost:8000/visitors')
-      .then(response => {
-        setData(response.data); // 서버에서 받은 데이터를 상태에 저장
-      })
-      .catch(error => {
-        console.error('Error fetching data:', error);
-      });
-  }, []);
-
-  console.log(data)
+const App = () => {
 
   return (
-    <>
-      <h2>Data from server</h2>
-      {
-        data.map((a, b) => (
-          <div key={b}>
-            <h2>{a.month}</h2>
-            <p>{a.update_date}</p>
-          </div>
-        )
-        )
-      }
-    </>
+    <div className='App w-screen flex items-center justify-center flex-col dark:bg-[#212121] dark:text-white'>
+      <div className='page-wrapper min-h-screen flex w-full'>
+        <Sidebar />
+        <div className='content-wrapper w-full'>
+          <Appbar />
+          <DashboardScreen />
+        </div>
+      </div>
+    </div>
   )
 }
 
