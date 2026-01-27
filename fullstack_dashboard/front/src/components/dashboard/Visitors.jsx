@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchVisitors } from '../../redux/slices/apiSlice';
+import HeadTitle from './HeadTitle';
 
 const Visitors = () => {
 
@@ -14,7 +15,9 @@ const Visitors = () => {
     // console.log(state)
 
     return (
-        <div>Visitors</div>
+        <div className='block-wrap'>
+            <HeadTitle title="Visitors Insights" />
+        </div>
     )
 }
 
