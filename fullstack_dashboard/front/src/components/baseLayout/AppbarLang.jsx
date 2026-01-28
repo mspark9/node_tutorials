@@ -13,7 +13,7 @@ const AppbarLang = () => {
 
     useEffect(() => {
         const handleClickOutside = (e) => {
-            console.log(e.target)
+            // console.log(e.target)
             if (!countryLangRef.current.contains(e.target)) {
                 setIsDropListEnabled(false)
             }

@@ -1,6 +1,7 @@
 import React from 'react'
 import Sales from './Sales'
 import Visitors from './Visitors'
+import TotalRevenue from './TotalRevenue'
 
 const DashboardScreen = () => {
     return (
@@ -8,6 +9,9 @@ const DashboardScreen = () => {
             <div className='grid grid-cols-[4fr_3fr] gap-x-[14px]'>
                 <Sales />
                 <Visitors />
+            </div>
+            <div className='grid grid-cols-[3fr_2fr_2fr]'>
+                <TotalRevenue />
             </div>
         </div>
     )
