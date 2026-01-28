@@ -1,5 +1,5 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
-import { GET_VISITORS_API_URL, GET_REVENUE_API_URL } from "../../constants/apiUrls";
+import { GET_VISITORS_API_URL, GET_REVENUE_API_URL, GET_CUSTOMERS_API_URL, GET_TARGETREALITY_API_URL, GET_TOPPRODUCT_API_URL } from "../../constants/apiUrls";
 import { getRequest } from "../../constants/requestMethods";
 
 // 공통된 비동기 액션 생성 로직을 별도의 함수로 분리
@@ -15,6 +15,15 @@ export const fetchVisitors = createFetchThunk('fetchVisitors', GET_VISITORS_API_
 // Get Revenue
 export const fetchRevenue = createFetchThunk('fetchRevenue', GET_REVENUE_API_URL)
 
+// Get customers
+export const fetchCustomer = createFetchThunk('fetchCustomer', GET_CUSTOMERS_API_URL)
+
+// Get target_reality
+export const fetchTargetReality = createFetchThunk('fetchTargetReality', GET_TARGETREALITY_API_URL)
+
+// Get top_products
+export const fetchTopProduct = createFetchThunk('fetchTopProduct', GET_TOPPRODUCT_API_URL)
+
 const handleFulfilled = (stateKey) => (state, action) => {
     state[stateKey] = action.payload;
 }
@@ -28,6 +37,9 @@ const apisSlice = createSlice({
     initialState: {
         visitorsData: null,
         revenueData: null,
+        customerData: null,
+        targetRealityData: null,
+        topProductData: null,
         isError: false,
     },
     extraReducers: (builder) => {
@@ -36,6 +48,12 @@ const apisSlice = createSlice({
             .addCase(fetchVisitors.rejected, handleRejected)
             .addCase(fetchRevenue.fulfilled, handleFulfilled('revenueData'))
             .addCase(fetchRevenue.rejected, handleRejected)
+            .addCase(fetchCustomer.fulfilled, handleFulfilled('customerData'))
+            .addCase(fetchCustomer.rejected, handleRejected)
+            .addCase(fetchTargetReality.fulfilled, handleFulfilled('targetRealityData'))
+            .addCase(fetchTargetReality.rejected, handleRejected)
+            .addCase(fetchTopProduct.fulfilled, handleFulfilled('topProductData'))
+            .addCase(fetchTopProduct.rejected, handleRejected)
     }
 })
 

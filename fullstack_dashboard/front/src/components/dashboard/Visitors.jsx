@@ -55,7 +55,7 @@ const Visitors = () => {
     return (
         <div className='block-wrap'>
             <HeadTitle title="Visitors Insights" />
-            <div className='line-chart w-full h-[230px]'>
+            <div className='line-chart w-full h-[230px] mt-3'>
                 <ResponsiveContainer width="100%" height="100%">
                     <LineChart
                         data={state}
