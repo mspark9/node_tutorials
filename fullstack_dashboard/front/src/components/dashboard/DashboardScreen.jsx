@@ -5,6 +5,8 @@ import TotalRevenue from './TotalRevenue'
 import Customers from './Customers'
 import TargetReality from './TargetReality'
 import TopProducts from './TopProducts'
+import SalesMap from './SalesMap'
+import VolumeService from './VolumeService'
 
 const DashboardScreen = () => {
     return (
@@ -18,6 +20,8 @@ const DashboardScreen = () => {
                 <Customers />
                 <TargetReality />
                 <TopProducts />
+                <SalesMap />
+                <VolumeService />
             </div>
         </div>
     )

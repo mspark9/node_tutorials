@@ -1,5 +1,5 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
-import { GET_VISITORS_API_URL, GET_REVENUE_API_URL, GET_CUSTOMERS_API_URL, GET_TARGETREALITY_API_URL, GET_TOPPRODUCT_API_URL } from "../../constants/apiUrls";
+import { GET_VISITORS_API_URL, GET_REVENUE_API_URL, GET_CUSTOMERS_API_URL, GET_TARGETREALITY_API_URL, GET_TOPPRODUCT_API_URL, GET_SALES_MAP_API_URL, GET_VOLUMESERVICE_API_URL } from "../../constants/apiUrls";
 import { getRequest } from "../../constants/requestMethods";
 
 // 공통된 비동기 액션 생성 로직을 별도의 함수로 분리
@@ -24,6 +24,12 @@ export const fetchTargetReality = createFetchThunk('fetchTargetReality', GET_TAR
 // Get top_products
 export const fetchTopProduct = createFetchThunk('fetchTopProduct', GET_TOPPRODUCT_API_URL)
 
+// Get sales_map
+export const fetchSalesMap = createFetchThunk('fetchSalesMap', GET_SALES_MAP_API_URL)
+
+// Get volume_services
+export const fetchVolumeService = createFetchThunk('fetchVolumeService', GET_VOLUMESERVICE_API_URL)
+
 const handleFulfilled = (stateKey) => (state, action) => {
     state[stateKey] = action.payload;
 }
@@ -40,6 +46,8 @@ const apisSlice = createSlice({
         customerData: null,
         targetRealityData: null,
         topProductData: null,
+        salesMapData: null,
+        volumeServiceData: null,
         isError: false,
     },
     extraReducers: (builder) => {
@@ -54,6 +62,10 @@ const apisSlice = createSlice({
             .addCase(fetchTargetReality.rejected, handleRejected)
             .addCase(fetchTopProduct.fulfilled, handleFulfilled('topProductData'))
             .addCase(fetchTopProduct.rejected, handleRejected)
+            .addCase(fetchSalesMap.fulfilled, handleFulfilled('salesMapData'))
+            .addCase(fetchSalesMap.rejected, handleRejected)
+            .addCase(fetchVolumeService.fulfilled, handleFulfilled('volumeServiceData'))
+            .addCase(fetchVolumeService.rejected, handleRejected)
     }
 })
 
