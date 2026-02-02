@@ -5,6 +5,7 @@ import { Icons } from '../../assets/icons'
 import AppbarLang from './AppbarLang'
 import AppbarProfile from './AppbarProfile'
 import { useDispatch, useSelector } from 'react-redux'
+import { setSidebarClose } from '../../redux/slices/sidebarSlice';
 
 const Appbar = () => {
     const isSidebarOpen = useSelector((state) => state.sidebar.isSidebarOpen)
