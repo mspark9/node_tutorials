@@ -6,7 +6,7 @@ CREATE TABLE visitors(
   unique_customer INTEGER NOT NULL,
   create_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP NOT NULL,
   update_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP NOT NULL
-)
+);
 
 
 INSERT INTO visitors (month, new_customer, loyal_customer, unique_customer) VALUES
@@ -30,7 +30,7 @@ CREATE TABLE revenue(
   offline INTEGER NOT NULL,
   create_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP NOT NULL,
   update_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP NOT NULL
-)
+);
 
 
 INSERT INTO revenue (day, online, offline)
@@ -41,7 +41,7 @@ VALUES
 ('Thu', 16, 7),
 ('Fri', 13, 12),
 ('Sat', 17, 13),
-('Sun', 21, 12)
+('Sun', 21, 12);
 
 
 CREATE TABLE customers(
@@ -51,7 +51,7 @@ CREATE TABLE customers(
   this_month INTEGER NOT NULL,
   create_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP NOT NULL,
   update_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP NOT NULL
-)
+);
 
 
 INSERT INTO customers (month, last_month, this_month) VALUES
@@ -71,7 +71,7 @@ CREATE TABLE target_reality(
   target INTEGER NOT NULL,
   create_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP NOT NULL,
   update_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP NOT NULL
-)
+);
 
 
 INSERT INTO target_reality (month, reality, target)
@@ -92,7 +92,7 @@ CREATE TABLE top_products(
   salesPercent INTEGER NOT NULL,
   create_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP NOT NULL,
   update_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP NOT NULL
-)
+);
 
 
 INSERT INTO top_products (name, papularityPercent, salesPercent)
@@ -111,7 +111,7 @@ CREATE TABLE sales_map(
   fill_color VARCHAR(30) NOT NULL,
   create_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP NOT NULL,
   update_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP NOT NULL
-)
+);
 
 
 INSERT INTO sales_map (country_id, country_name, fill_color) VALUES
@@ -135,7 +135,7 @@ CREATE TABLE volume_services(
   services INTEGER NOT NULL,
   create_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP NOT NULL,
   update_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP NOT NULL
-)
+);
 
 
 INSERT INTO volume_services (name, volume, services) VALUES
